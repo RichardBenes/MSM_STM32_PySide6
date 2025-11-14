@@ -17,6 +17,25 @@ MEMS chips present on the board:
 
 == Plan & Progress
 
+Next step:
+
+* load program to L476
+* update used OpenOCD
+
+Overal progress
+
+. Create & run PySide6 skeleton app ✔
+. Create & run STM32 skeleton app (read buttons & blink LEDs) 🐾
 . Send data over UART to PC
 . Read & show the data using PySide6 app
 . Read data from the gyroscope
+. Visualize the data (in any way) in the PySide6 app
+. Create schematic for the project
+. Find some good way of visualizing gyroscope data with Matplotlib, using 3D plots
+
+== Ideas & Wonderings
+
+* How to make `QLabel` background e.g. white? It's something with stylesheets
+* Are CubeMX's projects made for Make usable? Is Make usable on Windows (MSYS?) without WSL?
+* Are CubeIDE's C++ projects usable?
+* What exactly are `.d`, `.o`, `.su` and `.cyclo` files? How can I read them?
