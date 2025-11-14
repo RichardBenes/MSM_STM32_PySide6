@@ -1,0 +1,22 @@
+= MSM_STM32
+
+== MEMS chips used
+
+MEMS chips present on the board:
+
+* https://www.st.com/en/mems-and-sensors/l3gd20.html[L3GD20] -- 3-axis gyroscope
+* https://www.st.com/en/mems-and-sensors/lsm303c.html[LSM303C] -- compass + 3D accelerometer + 3D magnetometer
+* https://www.st.com/en/audio-ics/mp34dt01-m.html[MP34DT01-M] -- MEMS microphone
+
+== Resources
+
+* https://www.st.com/en/evaluation-tools/32l476gdiscovery.html
+* https://www.st.com/resource/en/datasheet/mp34dt01-m.pdf
+* https://www.st.com/resource/en/datasheet/lsm303c.pdf
+* https://www.st.com/resource/en/datasheet/l3gd20.pdf
+
+== Plan & Progress
+
+. Send data over UART to PC
+. Read & show the data using PySide6 app
+. Read data from the gyroscope
