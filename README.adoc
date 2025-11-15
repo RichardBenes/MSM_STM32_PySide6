@@ -25,7 +25,7 @@ Next step:
 Overal progress
 
 . Create & run PySide6 skeleton app ✔
-. Create & run STM32 skeleton app (read buttons & blink LEDs) 🐾
+. Create & run STM32 skeleton app (read buttons & blink LEDs) ✔
 . Send data over UART to PC
 . Read & show the data using PySide6 app
 . Read data from the gyroscope

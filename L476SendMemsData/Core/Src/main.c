@@ -88,11 +88,28 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
+  RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
+  RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
+  RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
+
+
   /* B2 - red
-     E8 - green */
+   * E8 - green */
 
   GPIOB->MODER &= ~GPIO_MODER_MODE2;
   GPIOB->MODER |= 1U << GPIO_MODER_MODE2_Pos; /* Set B2 as general purpose out */
+
+  GPIOE->MODER &= ~GPIO_MODER_MODE8;
+  GPIOE->MODER |= 1U << GPIO_MODER_MODE8_Pos; /* Set E8 as general purpose out */
+
+  /* A0, A1, A2, A3 and A5 are joystick button inputs; let's also enable pull-downs for them.
+   * 2U (0b10) is pull-down */
+  GPIOA->MODER &= ~GPIO_MODER_MODE0
+		  & ~GPIO_MODER_MODE1 & ~GPIO_MODER_MODE2
+		  & ~GPIO_MODER_MODE3 & ~GPIO_MODER_MODE5;
+  GPIOA->PUPDR |= (2U << GPIO_PUPDR_PUPD0_Pos)
+		  | (2U << GPIO_PUPDR_PUPD1_Pos) | (2U << GPIO_PUPDR_PUPD2_Pos)
+		  | (2U << GPIO_PUPDR_PUPD3_Pos) | (2U << GPIO_PUPDR_PUPD5_Pos);
 
   /* USER CODE END 2 */
 
@@ -105,11 +122,16 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  HAL_Delay(300);
 
-	  GPIOB->BSRR |= GPIO_BSRR_BS2;
+	  if (GPIOA->IDR & (1U << 1U)) {
+		  GPIOB->BSRR |= GPIO_BSRR_BS2;
+	  } else {
+		  GPIOE->BSRR |= GPIO_BSRR_BS8;
+	  }
 
 	  HAL_Delay(300);
 
 	  GPIOB->BSRR |= GPIO_BSRR_BR2;
+	  GPIOE->BSRR |= GPIO_BSRR_BR8;
   }
   /* USER CODE END 3 */
 }
