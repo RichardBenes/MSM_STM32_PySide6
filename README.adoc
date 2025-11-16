@@ -29,6 +29,9 @@ Overal progress
 . Send data over UART to PC ✔
 ** Let's just copy the code from BP, there's no time for reading reference manuals now... well, there's none. Let's do it then. How long will it take?
 . Read & show the data using PySide6 app
+** Read the serial data ✔
+** Learn how to show 3D surfaces in Matplotlib ✔
+** Tilt the shown surface 🐾
 . Read data from the gyroscope
 . Visualize the data (in any way) in the PySide6 app
 . Create schematic for the project
