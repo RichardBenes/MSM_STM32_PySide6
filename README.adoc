@@ -43,9 +43,14 @@ Overal progress
 * What _exactly_ is UART idle frame? Is it just "nothing happens" on the line for the duration of 1 frame?
 * What is the difference between `stdint.h` and `stding-gcc.h`?
 * `const` in C - what exactly does it mean? Especially in the context of pointers...
-* Any good alternative to PuTTY?
+* PuTTY...
+** Any good alternative to PuTTY?
+** Can PuTTY open in read-only mode?
+** Especially something I can easily disconnect and reconnect without closing the window
 * Let's go through the various embeddable scripting language interpretters and asses their usability for STM32's Cortex-M MCUs...
 * Can I split file in Eclipse as I can in VS Code?
 * How can I easily, interactively and offline try out various `printf()` formattings in C? Jupyter?
 * What is the best way of integrating FreeRTOS? Do I have to use STM32CubeMX, or is there any more "freedom" way?
 * STM32CubeIDE offers a variety of debugging tools. What about familiarizing with them?
+* What about putting my perihperal drivers somewhere?
+* How can I "split" the data incoming into my PC's serial port so that two apps could read them -- eg. both PuTTY and the Python app?
