@@ -21,18 +21,24 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "string.h"
-#include "stdint.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
+typedef enum {
+	GREEN,
+	RED
+} board_led_e;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define GPIO_MODE_INPUT 0U
+#define GPIO_MODE_IN 0U
 #define GPIO_MODE_OUT 1U
 #define GPIO_MODE_AF 2U
 #define GPIO_MODE_ANLG 3U
@@ -164,7 +170,12 @@ int main(void)
   USART2->CR1 |= USART_CR1_UE;
   USART2->CR1 |= USART_CR1_TE;
 
-  const char greetin[] = "hello there from DISCO\n";
+  const uint32_t buff_size = 128;
+  char str_buff[buff_size];
+  uint32_t transmit_len;
+  uint32_t run_id = 0;
+
+  board_led_e led_to_blink;
 
   /* USER CODE END 2 */
 
@@ -176,28 +187,36 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  uint32_t len = strlen(greetin);
-
-	  for (uint32_t i = 0; i < len; i += 1) {
-
-		  while ((USART2->ISR & USART_ISR_TXE) == 0U) {}
-
-		  USART2->TDR = greetin[i];
-	  }
-
-
 	  HAL_Delay(300);
 
 	  if (GPIOA->IDR & (1U << 1U)) {
+		  led_to_blink = RED;
+	  } else {
+		  led_to_blink = GREEN;
+	  }
+
+	  if (led_to_blink == RED) {
 		  GPIOB->BSRR |= GPIO_BSRR_BS2;
 	  } else {
 		  GPIOE->BSRR |= GPIO_BSRR_BS8;
 	  }
 
+	  transmit_len = snprintf(str_buff, buff_size, "Hello from the STM32 DISCO; run_id %lu, blinking %s\n",
+			  run_id,
+			  led_to_blink == RED ? "red" : "green");
+
+	  for (uint32_t i = 0; i < transmit_len; i += 1) {
+		  while ((USART2->ISR & USART_ISR_TXE) == 0U) {}
+		  USART2->TDR = str_buff[i];
+	  }
+
+
 	  HAL_Delay(300);
 
 	  GPIOB->BSRR |= GPIO_BSRR_BR2;
 	  GPIOE->BSRR |= GPIO_BSRR_BR8;
+
+	  run_id += 1;
   }
   /* USER CODE END 3 */
 }
