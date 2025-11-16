@@ -47,3 +47,5 @@ Overal progress
 * Let's go through the various embeddable scripting language interpretters and asses their usability for STM32's Cortex-M MCUs...
 * Can I split file in Eclipse as I can in VS Code?
 * How can I easily, interactively and offline try out various `printf()` formattings in C? Jupyter?
+* What is the best way of integrating FreeRTOS? Do I have to use STM32CubeMX, or is there any more "freedom" way?
+* STM32CubeIDE offers a variety of debugging tools. What about familiarizing with them?

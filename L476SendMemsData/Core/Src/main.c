@@ -173,7 +173,10 @@ int main(void)
   const uint32_t buff_size = 128;
   char str_buff[buff_size];
   uint32_t transmit_len;
-  uint32_t run_id = 0;
+
+  uint16_t gyro_x = 0;
+  uint16_t gyro_y = 20U;
+  uint16_t gyro_z = 110;
 
   board_led_e led_to_blink;
 
@@ -187,7 +190,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  HAL_Delay(300);
+	  HAL_Delay(10U);
 
 	  if (GPIOA->IDR & (1U << 1U)) {
 		  led_to_blink = RED;
@@ -201,9 +204,8 @@ int main(void)
 		  GPIOE->BSRR |= GPIO_BSRR_BS8;
 	  }
 
-	  transmit_len = snprintf(str_buff, buff_size, "Hello from the STM32 DISCO; run_id %lu, blinking %s\n",
-			  run_id,
-			  led_to_blink == RED ? "red" : "green");
+	  transmit_len = snprintf(str_buff, buff_size, "GX%uY%uZ%u\n",
+	  	  gyro_x, gyro_y, gyro_z);
 
 	  for (uint32_t i = 0; i < transmit_len; i += 1) {
 		  while ((USART2->ISR & USART_ISR_TXE) == 0U) {}
@@ -211,12 +213,26 @@ int main(void)
 	  }
 
 
-	  HAL_Delay(300);
+	  HAL_Delay(10U);
 
 	  GPIOB->BSRR |= GPIO_BSRR_BR2;
 	  GPIOE->BSRR |= GPIO_BSRR_BR8;
 
-	  run_id += 1;
+	  gyro_x += 1;
+	  gyro_y += 1;
+	  gyro_z += 1;
+
+	  if (gyro_x > 255) {
+		  gyro_x = 0;
+	  }
+
+	  if (gyro_y > 255) {
+		  gyro_y = 0;
+	  }
+
+	  if (gyro_z > 255) {
+		  gyro_z = 0;
+	  }
   }
   /* USER CODE END 3 */
 }
