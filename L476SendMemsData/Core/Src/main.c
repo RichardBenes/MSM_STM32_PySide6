@@ -218,20 +218,39 @@ int main(void)
 	  GPIOB->BSRR |= GPIO_BSRR_BR2;
 	  GPIOE->BSRR |= GPIO_BSRR_BR8;
 
-	  gyro_x += 1;
-	  gyro_y += 1;
-	  gyro_z += 1;
+	  if (led_to_blink == GREEN) {
+		  gyro_x += 1;
+		  gyro_y += 2;
+		  gyro_z += 3;
 
-	  if (gyro_x > 255) {
-		  gyro_x = 0;
-	  }
+		  if (gyro_x > 255) {
+			  gyro_x = 0;
+		  }
 
-	  if (gyro_y > 255) {
-		  gyro_y = 0;
-	  }
+		  if (gyro_y > 255) {
+			  gyro_y = 0;
+		  }
 
-	  if (gyro_z > 255) {
-		  gyro_z = 0;
+		  if (gyro_z > 255) {
+			  gyro_z = 0;
+		  }
+
+	  } else {
+		  gyro_x += 10;
+		  gyro_y += 10;
+		  gyro_z += 10;
+
+		  if (gyro_x > 120) {
+			  gyro_x = 50;
+		  }
+
+		  if (gyro_y > 140) {
+			  gyro_y = 70U;
+		  }
+
+		  if (gyro_z > 160U) {
+			  gyro_z = 90U;
+		  }
 	  }
   }
   /* USER CODE END 3 */
