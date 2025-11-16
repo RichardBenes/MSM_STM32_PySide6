@@ -27,6 +27,7 @@ Overal progress
 . Create & run PySide6 skeleton app ✔
 . Create & run STM32 skeleton app (read buttons & blink LEDs) ✔
 . Send data over UART to PC
+** Let's just copy the code from BP, there's no time for reading reference manuals now... well, there's none. Let's do it then. How long will it take?
 . Read & show the data using PySide6 app
 . Read data from the gyroscope
 . Visualize the data (in any way) in the PySide6 app
@@ -39,3 +40,8 @@ Overal progress
 * Are CubeMX's projects made for Make usable? Is Make usable on Windows (MSYS?) without WSL?
 * Are CubeIDE's C++ projects usable?
 * What exactly are `.d`, `.o`, `.su` and `.cyclo` files? How can I read them?
+* What _exactly_ is UART idle frame? Is it just "nothing happens" on the line for the duration of 1 frame?
+* What is the difference between `stdint.h` and `stding-gcc.h`?
+* `const` in C - what exactly does it mean? Especially in the context of pointers...
+* Any good alternative to PuTTY?
+* Let's go through the various embeddable scripting language interpretters and asses their usability for STM32's Cortex-M MCUs...
