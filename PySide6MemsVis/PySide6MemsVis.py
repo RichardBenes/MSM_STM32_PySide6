@@ -5,6 +5,8 @@ from PySide6.QtCore import QIODevice, QByteArray
 
 import re
 
+from typing import Self
+
 class MainWindow(QMainWindow):
 
     lbl: QLabel
@@ -17,7 +19,7 @@ class MainWindow(QMainWindow):
 
     gyro_pattern: re.Pattern
 
-    def __init__(self):
+    def __init__(self: Self) -> None:
         super().__init__()
 
         self.gyro_pattern \
@@ -49,12 +51,12 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(holder)
     
-    def update_gyrolbl(self):
+    def update_gyrolbl(self: Self) -> None:
         self.gxlbl.setText(str(self.gx))
         self.gylbl.setText(str(self.gy))
         self.gzlbl.setText(str(self.gz))
     
-    def handle_com_data(self):
+    def handle_com_data(self: Self) -> None:
         if self.port.bytesAvailable() < (len("GX0Y0Z0\n") * 2):
             return
         data: QByteArray = self.port.readAll()
