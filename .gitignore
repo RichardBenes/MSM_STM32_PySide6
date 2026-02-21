@@ -3,3 +3,4 @@
 *.su
 *.cyclo
 **/Debug/*
+*.pdf

@@ -1,4 +1,7 @@
 = MSM_STM32
+:source-highlighter: rouge
+:rouge-style: github
+:pdf-themesdir: .
 Richard Beneš <richard.benes.st@vsb.cz>
 
 == MEMS chips used
@@ -12,6 +15,17 @@ A STM32L476 Discovery board {brdlnk} has been used with following MEMS sensors:
 * L3GD20{gyrolnk} -- 3-axis gyroscope
 * LSM303C{camlnk} -- compass + 3D accelerometer + 3D magnetometer
 * MP34DT01-M{miclnk} -- MEMS microphone
+
+== Project structure
+
+
+[plantuml,align=center]
+.Project structure
+----
+@startuml
+STM32 -> PC : GX12Y33Z44\\n
+@enduml
+----
 
 == Plan & Progress
 
@@ -37,6 +51,7 @@ Overal progress
 
 == Ideas & Wonderings
 
+* Use local Kroki!
 * How to make `QLabel` background e.g. white? It's something with stylesheets
 * Are CubeMX's projects made for Make usable? Is Make usable on Windows (MSYS?) without WSL?
 * Are CubeIDE's C++ projects usable?
@@ -55,3 +70,27 @@ Overal progress
 * STM32CubeIDE offers a variety of debugging tools. What about familiarizing with them?
 * What about putting my perihperal drivers somewhere?
 * How can I "split" the data incoming into my PC's serial port so that two apps could read them -- eg. both PuTTY and the Python app?
+
+== Tools used
+:adclnk: footnote:[https://docs.asciidoctor.org/asciidoc/latest/]
+:adchlnk: footnote:[https://asciidoctor.org/]
+:idelnk: footnote:[https://www.st.com/en/development-tools/stm32cubeide.html]
+:mxlnk: footnote:[https://www.st.com/en/development-tools/stm32cubemx.html]
+:ocdlnk: footnote:[https://openocd.org/]
+:vsclnk: footnote:[https://code.visualstudio.com/]
+:gitlnk: footnote:[https://git-scm.com/]
+:pumlnk: footnote:[https://plantuml.com]
+:kilnk: footnote:[https://kroki.io/]
+
+* This document has been written in AsciiDoc{adclnk}, the PDF has been generated using Asciidoctor{adchlnk} with command 
+* STM32 code has been written and debugged using STM32CubeIDE{idelnk}
+* Project skeleton has been generated using STM32SCubeMX{mxlnk}
+* For debugging, OpenOCD{ocdlnk} has been used
+* Python and AsciiDoc code has been written in VS Code
+* Project has been versioned using Git{gitlnk}
+* Diagrams are written using PlantUML{pumlnk} and rendered using Kroki{kilnk}
+
+[source,powershell]
+----
+asciidoctor-pdf --require asciidoctor-kroki --attribute allow-uri-read --theme prj .\README.adoc
+----
