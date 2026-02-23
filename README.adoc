@@ -70,6 +70,7 @@ Overal progress
 * STM32CubeIDE offers a variety of debugging tools. What about familiarizing with them?
 * What about putting my perihperal drivers somewhere?
 * How can I "split" the data incoming into my PC's serial port so that two apps could read them -- eg. both PuTTY and the Python app?
+* Maybe embed some REPL-capable interpreter so it would be easier to interactively "play" with the sensors via their registers?
 
 == Tools used
 :adclnk: footnote:[https://docs.asciidoctor.org/asciidoc/latest/]

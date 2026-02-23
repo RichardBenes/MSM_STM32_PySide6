@@ -4,3 +4,7 @@
 *.cyclo
 **/Debug/*
 *.pdf
+*.zip
+\#auto_saved_files\#
+*.bak
+*.lck
