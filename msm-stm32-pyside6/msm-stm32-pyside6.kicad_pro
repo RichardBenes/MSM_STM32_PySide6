@@ -247,7 +247,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "Inter_MCU_Peripherals"
+    ]
   },
   "meta": {
     "filename": "msm-stm32-pyside6.kicad_pro",
@@ -412,6 +414,10 @@
     [
       "f9c1f6c8-5521-4ac3-8af7-7ae3643e916d",
       "Root"
+    ],
+    [
+      "c75a19a8-7a8e-48ce-81c4-f79e0381c58c",
+      "SPI pin signal path"
     ]
   ],
   "text_variables": {}

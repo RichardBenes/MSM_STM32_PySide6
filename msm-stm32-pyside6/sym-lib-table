@@ -1,4 +1,5 @@
 (sym_lib_table
   (version 7)
   (lib (name "msm-stm32-pyside6")(type "KiCad")(uri "${KIPRJMOD}/msm-stm32-pyside6.kicad_sym")(options "")(descr ""))
+  (lib (name "Inter_MCU_Peripherals")(type "KiCad")(uri "C:/repositories/GitHub/RichardBenes/rb-kicad-commons/Inter_MCU_Peripherals.kicad_sym")(options "")(descr ""))
 )

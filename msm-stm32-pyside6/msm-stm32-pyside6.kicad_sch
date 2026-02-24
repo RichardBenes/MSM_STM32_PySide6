@@ -63906,6 +63906,48 @@
 			)
 		)
 	)
+	(sheet
+		(at 120.65 162.56)
+		(size 49.53 21.59)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c75a19a8-7a8e-48ce-81c4-f79e0381c58c")
+		(property "Sheetname" "SPI pin signal path"
+			(at 120.65 161.8484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "untitled.kicad_sch"
+			(at 120.65 184.7346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "msm-stm32-pyside6"
+				(path "/f9c1f6c8-5521-4ac3-8af7-7ae3643e916d"
+					(page "2")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
